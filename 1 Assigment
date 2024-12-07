@@ -1,0 +1,70 @@
+1) What is Emmet?
+ans) emmet is an productive tool for web devlopment that help with HTML and CSS faster . instead of typing full syntak , you write short expression that expand into complete code snippets 
+
+2)Difference between a Library and Framework?
+ans) LIBRARY:- a library like toolkit for programmer . it consits of collection of pre-written code , function , routines that devloper can incoperate into their project , with library programmed can avoid written code from scratches for common task . which sace and reduce error
+    FRAMEWORK :-  a software framework like a blueprint for building application . it provide a structed foundation trails software devloped used to create program create for a specific platform . the presence of predefined structured and convention help devloper on how to organize their code efficticvely 
+
+3)What is CDN? Why do we use it?
+ans) a content delivery network (CDN) is group of geographical server that speed up the delivery of web content by bring it closer to where user are 
+     its used like cashing method like computer architecture . we can crete copies into main server to cdn then after that user call the same data CDN provide the data 
+
+4) Why is React known as React?
+ans ) react is called react because it emphasizes the idea of reaction to change in data to update the user interface . the name reflect its fundamental design philosoph and technical approch 
+
+5)What is crossorigin in script tag?
+ans) the purpose of cross origin attributesis used to share the resources from one domain to another domain . basically it is used to handle the cores request 
+     CORS: it stand for cross origin request sharing . it is mechanism by which one webpage request to another domain for fetching out like audio , video , etc 
+
+6)What is diference between React and ReactDOM?
+ans) react :- is a javascript library for building  user interface 
+     react DOM :- it is a seprate pakages that enable react to update and render ui components on web browser by direct interaction with brower . document object model (DOM) ensuring smooth ,dynamic user experience by not reloading the whole page 
+
+7)What is difference between react.development.js and react.production.js files via CDN?
+ans) react.devlopement.js :- the devlopment mode we can enable and utilize react devloper tools , devtools profiler , debugging enviroment attachment source code 
+     react.production.js :- the production mode , compression and magnificate of javascript and other resource happen to reduce size of code which is not in case devlopment code .performamce will faster in production mode when compared to devlopment tools 
+
+8) What is async and defer?
+ans) asynchronouse :- when we used async attribute the scipt is downloaded asychronous with the rest of page without pausing HTML parsing and content of page and processor and dipslaced 
+     deferred :- the defer attributed tells brower not to interface with html parsing and only to execute the script file once the html document has been fully parsed 
+
+9)Using React
+■ use CDN Links
+■ Create an Element
+■ Create nested React Elements
+■ Use root.render
+
+ans) 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nameshta react</title>
+</head>
+<body>
+  <div id="root">not reander </div>
+  
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+
+  const heading1 = React.createElement("h1",{
+     id:"heading1",
+  } , "heading1");
+
+  const heading2 = React.createElement("h2",{
+     id:"heading2",
+  } , "heading2");
+
+  const container = React.createElement("div",{
+    id: "container",
+  }, [heading1,heading2]);
+
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  root.render(container);
+</script>
+</html>
