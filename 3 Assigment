@@ -1,0 +1,40 @@
+1) whatis babel ?
+ans) babel is things that we used in JAVASCRIPT to translate code into new version(ES6) to older version because 1)we want to run our code in old browers 2) we used babel to convert jsx into createelement  
+
+2)what is key ?
+ans) react uses the key attribute to identifying which iteam in list have change be added or removes 
+     react required the key props to track components but id attribute is just standard HTML property .it doest have same meaning or effect in react reconcilliation process 
+                                                or
+      key: For React's internal use during rendering and reconciliation     id: For global uniqueness in the HTML DOM.
+
+                                                                TOPIC 
+1) JSX ?
+ans) JSX  is a syntak where we used babel and convert code into react createElement then we know reactelement is a object which gives object after that object convert into dom and inialize the code 
+                                                                  or
+     JSX is llike syntak HTML inside the JS but it actually jsx doesn't contain HTML inside JS 
+     JSX contain jsx expresion 
+
+2) React.createElement vs JSX?
+ans) React.createElement is a JS function that create react element directly   {REACT.CREATEELEMENT--> OBJECT -->HTML(DOM)}
+     JSX is a syntak that we create new element [JSX SYNTAX --> BABEL-->REACT.CREATEELEMENT-->OBJECT-->HTML(DOM)]
+
+3)Benefits of JSX?
+ans)1)JSX allow you to combine JS logic and HTML structure in same file 
+    2) jsx make things very simple that we understand very easiely 
+
+4)Behind the Scenes of JSX?
+ans) JSX is a syntak that we create new element [JSX SYNTAX --> BABEL-->REACT.CREATEELEMENT-->OBJECT-->HTML(DOM)]
+
+5)Babel & parcel role in JSX
+ans) when we install parcel bable tools also install with them . bable mainly used for convert new version of javascript code (ECMAScript 2015+) to old version of javascript code (backwards)
+    we used babel : 1)we want to run our code in old browers(polyfills)  2) we used babel to convert jsx into createelement 
+
+6) Components and elements ? 
+ans) react element : one tag is know as react element .. element gives only one tag 
+     components :it is peice of code that defines a specific part of user interface 
+                              or
+                        every part of UI
+    components are two type : 1) functional component(NEW TYPE CODE) 2) class based components (ODL TYPE OF CODE)
+                              1) functional components : it is a function that return soome part of some peice of JSX or react element 
+
+     
