@@ -54,4 +54,87 @@ ans) the purpose of .gitignore file is to ensure that certain file not tracked b
                            or 
      to stop trackingfile that is currently tracked .the file name can then be added to the .gitinore file to stop the file being reintroduce in later commit 
      * anythiing which is auto generate we put into .gitigore like node module , testing file etc 
+11)What is the difference between `package.json` and `package-lock.json`?
+ans) pakages.json file contains the list of dependencies and script in a project while pakages.lock.json specific their respective versin to ensure consistent installion in diffrent enviromental 
+    script : we used script component to define custom command or automate task as part of our devlopment and production workflow 
+
+12)Why should I not modify `package-lock.json`?
+ans) pakage-lock.json file is a auto generated file managed by NPM .editing it directly can lead by inconsistency ,broken dependencies or unexpected behaviour in your project 
+                                            or
+     to endure consistency and responsiblity across diffrent enviroments , both file should be commited to version control and devloper should be careful not to modify pakages-lock.json file directly 
+
+13)What is `node_modules` ? Is it a good idea to push that on git?
+ans)it is a folder where npm or yarn install all dependencies required for a node.js project it contain all installed pakages , nested dependencies , executable binaries 
+      NO, we should not put node_module to GIT because 1) it have large size 2) ll dependencies already there in pakages.json 
+      why we need node-module:
+      1) tool like pascal and webpack use to access libraries during devlopment 
+      2) it provide local copy of all librarues your project depend on it 
+
+14)- What is the `dist` folder?
+ans ) it is a file that contain production level file . we can deploy this file directly we used "parcel watch index.html" to build the sist folder .. watch is used because after made dist folder and we modify the changes the automatically cange dist folder 
+
+15)What is `browserlists`Read about dif bundlers: vite, webpack, parcel?
+ans) browserlist is tools that specify which browser support i your frontend application . it i spresent in pakage.json 
+      why do we need browserlist : 1) optimize the target browers 2) smallest build 3) autoomation (it means generation appropiate code or syntak)
+      diffrence between :VITE , WEBPACK ,PARCEL 
+     WEBPACK : if you need full excess and control and customization 
+     PARCEL : if yo want somethings simple for your small to medium project 
+     VITE : if you building modern libraries(react) and need blazing fast performance 
+
+16) Read about: ^ - caret and ~ - tilda
+ans) we used ^(caret) because whenever in future there are some other version present the automatically install the new version 
+     we used ~ (tilde) because whenever i future there are some other version present the tilde doest install we used old version 
+
+17)Read about Script types in html (MDN Docs)?
+ans) element used to embed(to fix something deeply) executable code or data 
+     this is typically used to embed or refer to js code 
+
+18) what is transative dependencies ?
+ans) A transitive dependency is one not imported directly into the project at hand, but instead imported by a direct dependency or another transitive dependency.
+                              or 
+    it means every pakages depend another-another dependencies these called transative dependencies  
+
+
+
+                          COADING 
+indec.html -->>
+(<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nameshta react</title>
+</head>
+<body>
+  <div id="root">not reander </div>
+  
+</body>
+<script type = module , src="main.js"></script>
+</html>)
+
+main.js(import React from "react";
+import ReactDOM from "react-dom/client"; 
+
+const heading1 = React.createElement(
+  "h1",
+  { id: "heading1" },
+  "heading1"
+);
+
+const heading2 = React.createElement(
+  "h2",
+  { id: "heading2" },
+  "heading2"
+);
+
+const container = React.createElement(
+  "div",
+  { id: "container" },
+  [heading1, heading2]
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root")); 
+root.render(container); 
+)
+
           
