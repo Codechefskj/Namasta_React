@@ -1,1 +1,57 @@
+1) What is `NPM`?
+ans) NPM is world largest software registry . NPM use to share and borror pakages .it contains react pakages , react-dom pakages and also help to execute the code 
 
+2)what is the diffrence between module and pakages ? defined the module , pakages , library , framework ?
+ans) a pakages is collection of module , which library is collection of pakages 
+     module : it is smallest unit of organization a module is piece of code that can build upon . module are made up of function , clases , variable and other blocks of code 
+     pakages : a collection of module that usually have similar functional purpose . pakages can be organized hieraracically 
+     library : it is collection of pakages that provide ready to use functionalities .library down force style on user 
+     framework : set of libraries that provide an architecture for application devlpment framework provide set of rule , convention and tools to help structure force a coding style on user 
+
+3)What is `Parcel/Webpack`? Why do we need it?
+ans) parcel and webpack are module bundler . it is tool used to bundler and optimeze your application code , espically in mordern OS libraries like react 
+    bundler : it is a tool that allow devlper to pakages their code into a single file or bumdler . it make it easier to deploy and run the application and making the code efficiently and maintaliblity 
+
+4)What is `.parcel-cache`
+ans) parcel cache store information about your project when parcel build it , so that it rebuild ,it doest reparse and re - analyze everthings from scrach 
+
+5)What is `npx` ?
+ans) run a command from local or remote npx pakages 
+             or
+     NPX is command line interface tools that allow run NODE.JS pakages from NPM registry without installying them gllobally .. download and run pakages locally 
+
+6)What is difference between `dependencies` vs `devDependencies`
+ans) dependencies : these are pakages your application needs to run in production .. purpose : core library and framework that your application needs to run in production 
+     devdependencies : these are pakages used during devlpment but not required in production .. purpose : tools thathelp you to build test and maintained application
+
+7)What is Tree Shaking?
+ans) it is term used in modern JS devlopment to refer to process of elimination unused code from your final bundler ... 
+                            or
+     tree shaking remove dead code by analyzing the dependency tree of application ... we used blunder to do it 
+
+8) What is Hot Module Replacement?
+ans) hot module replacement is a feature in modern JS devlopment allow you to update module in running application without requiring full reload 
+     how to work HMA :
+     1) detech changes : when you modify file your project , the module bundler detech the changes 
+     2) rebuilding the changes : the bundler recompiler only changes moulde instead of entire application 
+     3) injection : the updated module used to borrower vie websocket connection similar mechanism 
+
+9) - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words ?
+ans) magnificatin ->> the process to reduce the size of code by remove unnessary character withpit altering function ..  purpose : reduce file size faster in production enviroment 
+      how it works : bundler used pakages to do this for HTML: parcel build logic , JS : tersen , CSS : CSSnamno 
+    optimize image ->> the heavies things to reload in a webpage is image . parcel bundler optimze these things using sharp or imaganin pakages 
+    caching while devlopment ->> parcel cache all code while devlopment (cache stored the information aboout project when parcel build it , so it rebuild it ,it doest take much time analyzed all these things again and again)
+    zero configuration ->> think of zero configuration like using a device that work the moment you plug it , without neediing you to adject setting or read a manual 
+      parcel is designed to work out of box . no need to write a coonfiguration like .webpack.config.js ... parcel automatically figure out how to handle your files (.html.css.JS etc) and does all the necessary work behind the screan
+      how it work : automatically handle common file type (.html elc) , it automatically applies high tool (like babel , terser ,CSSnano) to process and optimze your file 
+     consistent hashing algorithum ->>parcel uses content hashing algorithum to generate unique deterministric file name for bundler assest .it  ensure efficiently caching assest and  integrity of file during the build process ..
+     parcel typically used MD5 algorithum to generate file hash . MD5 is widly used for its balance of speed and reliablity in generatingunique identification for file content 
+      HOW IT WORKS : 1) duringthe build ,parally read the content of each file (eg JS,CSS,HTML etc) 
+                    2) it applies MD5 algorithum to generate hash based on content 
+                    3) this hash as appended to filename eg app.[hash].js etc
+10)What is `.gitignore`? What should we add and not add into it?
+ans) the purpose of .gitignore file is to ensure that certain file not tracked by git remain untracked 
+                           or 
+     to stop trackingfile that is currently tracked .the file name can then be added to the .gitinore file to stop the file being reintroduce in later commit 
+     * anythiing which is auto generate we put into .gitigore like node module , testing file etc 
+          
