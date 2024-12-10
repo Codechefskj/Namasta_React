@@ -35,4 +35,17 @@ ans)key help react to identify which iteam have changes are added or are remove 
 10) Can we use index as keys in React?
 ans) yes we can used the index of array or map in react , but it not recommendated to used this because :
      1) incorrect components matching : react used key yo identify which element has to chnged been added or rendering if the order of iteam change using and index can cause react to mis match element , leading to unexpected error 
-     
+
+11) What is props in React? Ways to?
+ans) props(properties) are ways to pass data from parents components to a child components in react 
+     ways to : 1) simple 
+
+
+
+12) What is a Config Driven UI ?
+ans) when you bild a real life application you want to run you application in all over the world we control the frontend is know as config driven UI 
+                                or 
+    a config driven UI design approch where the user interface (UI) dynamically generated based on configuration file or object of being hardcoded in applicatin 
+                                 or 
+    example : swiggi give offer in resturunt . suppose i am open my swiggi with 20% casback offor in particular resturant the again i opend my swiggi in tamil nadu the same offer doest gave by swiggi this is example is config driven ui 
+
