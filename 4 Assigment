@@ -1,0 +1,38 @@
+1) Is JSX mandatory for React?
+ans) no JSX is not mandotary for react .. JSX i sjust like syntak which make .createElemnt easy way to written 
+
+2)Is ES6 mandatory for React?
+ans) No ES6 is not mandatory for react . react itself does't depend on ES6 it can used with ES6 or older 
+
+3) what is ES6 ?
+ans) ES6 was major update to JS , introducing feature like let,const,arrow function , classes , templete literals , promises and more 
+
+4)How can I write comments in JSX?
+ans) we used "//" for single line comments and "**/" for multiple line 
+
+5)What is Virtual DOM?
+ans) VDOM is lightweight copy or representation of real DOM that exist is memory rather than browser (this is a just copy of real DOM)
+     in typical react application the virtual DOM act an intermediate between the UI state and real DOM . when somethings change in real DOM , react will update the virtual DOM first 
+
+6) what is shadow DOM  ? how it is diffrent for virtual dom ?
+ans) The shadow dom is browser technology designed primarily for scoping variable and css in web components . virtual DOM is concepy implementa by libraries in JS 
+
+7)What is Reconciliation in React?
+ans) it is process of updating the real DOM based in changes in virtual DOM . react uses highly optimizes algorithum (DIFFER) to compare the current virtual DOM with previous one the figure 
+     out the minimum set of changes ("differ") required update the real DOM . this process ensure that react only update the nessasary part of uI , improving performance and  avoidable unnessary re-render 
+
+8)What is React Fiber?
+ans) a reimplementation of React's core algorithm that improves the performance of React applications
+     the goal of react fibre is to increase its siutablity for area like animation , layout  and gesture 
+     features are :
+     1) incremental rendering : the ablity to split rendering work chunks(large peices) and spread out over multiple frames 
+     2) the ablity to pause , abort or reuse work as new update come in the ability to assign pririty to diffrent types of update 
+
+9)Why we need keys in React? When do we need keys in React?
+ans)key help react to identify which iteam have changes are added or are remove ... suppose we have 4 div and then we add one more div in virual dom . the added div lies on first place then other dom are present after that . if we dont have key the diffre algorithum rendering everthing then commit change into real DOM that's why we give unique key over there
+    no key << index key << uniquly key 
+
+10) Can we use index as keys in React?
+ans) yes we can used the index of array or map in react , but it not recommendated to used this because :
+     1) incorrect components matching : react used key yo identify which element has to chnged been added or rendering if the order of iteam change using and index can cause react to mis match element , leading to unexpected error 
+     
