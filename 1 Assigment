@@ -7,7 +7,7 @@ ans) LIBRARY:- a library like toolkit for programmer . it consits of collection 
 
 3)What is CDN? Why do we use it?
 ans) a content delivery network (CDN) is group of geographical server that speed up the delivery of web content by bring it closer to where user are 
-     its used like cashing method like computer architecture . we can crete copies into main server to cdn then after that user call the same data CDN provide the data 
+     its used cashing method like computer architecture . we can crete copies into main server to cdn then after that user call the same data CDN provide the data 
 
 4) Why is React known as React?
 ans ) react is called react because it emphasizes the idea of reaction to change in data to update the user interface . the name reflect its fundamental design philosoph and technical approch 
