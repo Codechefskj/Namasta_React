@@ -49,3 +49,9 @@ ans) when you bild a real life application you want to run you application in al
                                  or 
     example : swiggi give offer in resturunt . suppose i am open my swiggi with 20% casback offor in particular resturant the again i opend my swiggi in tamil nadu the same offer doest gave by swiggi this is example is config driven ui 
 
+13) what is return statment and why we used it and what is type of reurn statment ?
+ans) return statment help to optimze the rendering process by efficiently updation only changed element of re renderiing the entire list 
+     yes, reurrn statment is mandatory in react functinal component if you are returning multiple line :
+     types of return statment :
+     1) single line jsx : if you is single expresion you can't used culies braces you used implicit return with paranthesis ();
+     2) multiple line JSX : when you use spans multiple line .)use paranthesis () to wrap the jsx readublity .) explicit use return keyword if you open function body with curly braces {};
