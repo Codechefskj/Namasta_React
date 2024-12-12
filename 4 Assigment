@@ -56,5 +56,8 @@ ans) return statment help to optimze the rendering process by efficiently updati
      1) single line jsx : if you is single expresion you can't used culies braces you used implicit return with paranthesis ();
      2) multiple line JSX : when you use spans multiple line .)use paranthesis () to wrap the jsx readublity .) explicit use return keyword if you open function body with curly braces {};
 
-14) how to join iinto array ?
+14) how to join into array ?
 ans) .join() method of array create a new  string by concature all the element in this array seprated by commas or specific seprator string 
+
+15)what is optiniion chaining in js ?
+ans) aperation chaining an object property or call functioon if the object accesed or function called using this operation is undefined or null the expresion short circuit and evalutes to undefined instead throwing error 
