@@ -61,3 +61,7 @@ ans) .join() method of array create a new  string by concature all the element i
 
 15)what is optiniion chaining in js ?
 ans) aperation chaining an object property or call functioon if the object accesed or function called using this operation is undefined or null the expresion short circuit and evalutes to undefined instead throwing error 
+
+16) what is spread operation in JS ?
+ans) the JS apread operator (...) expend an iterable (like array) into element . 
+     this allow us quickly all part of existing array into another array 
