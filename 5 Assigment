@@ -1,2 +1,89 @@
 Q1) What is the difference between Named Export, Default export and * as export?
-ans) 
+ans) named export : let us export serveral things from a module each one specofic name . this make it clear which entity importiong into other module . named export are useful when we need to share multiple functionalities 
+     example -> export const PI = 3.14159
+     default export : allo module to export a single value or default export unlike name export which allow you to export multiple value from default export allow you to export one value per module 
+     example -> const getting = "hello world"
+                export default getting;
+     wildcard export (*): this allow you to import from file as object . it useful when you want to import everythings from module under single namespace 
+     example-> export const foo=()=>{};
+               export const bar =()=>{};
+                import * as ulits from "./itiles"
+                 utilts.foo();
+                 utils.bar();
+
+Q2)What is the importance of config.js file?
+ans) 1) centralized configuration : this config.jsx fill allow you to store configuration value in one place (eg API , URL etc ) you dont have hard code these value acc to multiple files 
+     2) enviroments specific setting : to define enviromental specific configuration such as devlopments , staging and production setting 
+     3) storing constants and configuration : in config.jsx allow you to import and reuse them according multiple components , reducing redundard and promoting DrY(dont repete yourself)
+     4) easy to maintain 
+
+Q3)What are React Hooks?
+ans)react hooks are normal function that allow you to use state and other react feature in function components which were traditional available on class  components 
+    -> they allow functional components to have behaviour and lifecycle method needling to convert the components intoo class 
+    -> they are pure JS function that follow specific naming convention which help ensure that usage and behaviour in react components
+    ->hooks make possible extra components logic into reusuable function ,make code more modular and easier to task 
+                                          or
+ hooks functiono that allow devloper to use state and other react feature without written class components 
+
+Q4) Why do we need a useState Hook?
+ans) evertimes you want your variable to syncs with your UI you need to use usestate hook 
+
+
+
+
+Coding Assignment:
+.Clean up your code
+.Create a Folder Structure for your app
+.Make different files for each Components
+.Create a config file
+.Use all types of import and export
+.Create a Search Box in your App
+.Use useState to create a variable and bind it to the input box
+.Try to make your search bar work
+
+ans) import { useState } from "react";
+import { Resturantinfo } from "./config"
+import Restruantcard from "./Restruantcard";
+
+
+const filter = (searchText, NewRestruant) => {
+  return NewRestruant.filter((resturant) => resturant.name.includes(searchText)
+  );
+};
+
+
+
+const Body = () => {
+
+  const [searchText , setsearchText]= useState();
+  const[NewRestruant,setNewRestruant] = useState(Resturantinfo);
+
+  return (
+    <>
+      <div className="search_cointerner">
+        <input className="input_button" 
+        placeholder="search anythings" 
+        onChange={(e)=>
+          setsearchText(e.target.value)}
+        ></input>
+        
+
+        <button onClick={ ()=>{
+        const data = filter(searchText,NewRestruant);
+        setNewRestruant(data);
+        }}
+        >search</button>
+      </div>
+
+
+      <div className="maibodydiv">
+        {
+          NewRestruant.map((Restruant) => {
+            return <Restruantcard {...Restruant} key={Restruant.id} />
+          })
+        }
+      </div>
+    </>
+  );
+};
+export default Body;
