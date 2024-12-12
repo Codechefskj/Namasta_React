@@ -38,8 +38,13 @@ ans) yes we can used the index of array or map in react , but it not recommendat
 
 11) What is props in React? Ways to?
 ans) props(properties) are ways to pass data from parents components to a child components in react 
-     ways to : 1) simple 
-
+                           or
+    props (properties) are attribute or value from that we pass to function components in react to make them reusable and dynamic 
+     ways to : 1) we simple pass attribute in functional components and in functinal components we writs simply props and used that data 
+               2) we pass attribute in functional components and wrute props in components the we write const resturants[name,star,imageid]= props , then we used the data 
+               3) we write in functional components (name,star,imageid ,etc) and write attribute like name={restrurant.name} , star={restrurant.star} etc
+               4) we pass the attribute spreading array {...resturant} . here restrurant is JS object array , and we write parameter same as no 3 
+               5) we used restrurant.map in attribute type and parameter are same write above 
 
 
 12) What is a Config Driven UI ?
@@ -65,3 +70,8 @@ ans) aperation chaining an object property or call functioon if the object acces
 16) what is spread operation in JS ?
 ans) the JS apread operator (...) expend an iterable (like array) into element . 
      this allow us quickly all part of existing array into another array 
+
+17) what is array.map() in JS ?
+ans) array.map(write a function) or array.map(()=>{return})
+                             or
+     it means crete a new array from callaing for every array function 
