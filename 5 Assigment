@@ -37,6 +37,10 @@ ans) e(short of event) refer to event object automatically passed to th event ha
      e.target.value retrives the value of the value attribute of the triggered element 
     e is a object when somethings changed in the tag e(event object ) automatically passed the function and allows us to diffrent diffrent things live e.target.value gives whatpresent value presnt in the tag 
 
+Q7) what is diffrence between arr.fliter() and arr.map()?
+ans) arr.filter and arr.map is similar both are iterative the array over the function inside the arr.filter and arr.map() the only diffrence is arr.filter() gives subset and the length of new array is diffrent to array but in arr.map() gives the same length array 
+
+
 Coding Assignment:
 .Clean up your code
 .Create a Folder Structure for your app
