@@ -40,6 +40,8 @@ ans) e(short of event) refer to event object automatically passed to th event ha
 Q7) what is diffrence between arr.fliter() and arr.map()?
 ans) arr.filter and arr.map is similar both are iterative the array over the function inside the arr.filter and arr.map() the only diffrence is arr.filter() gives subset and the length of new array is diffrent to array but in arr.map() gives the same length array 
 
+Q8) what is state ?
+ans) state is a compponent memory that store data or inform about components 
 
 Coding Assignment:
 .Clean up your code
