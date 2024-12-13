@@ -1,1 +1,11 @@
-Q1) 
+Q1) why we write await keywords in JS?
+ans) as we know async function are used to reload everthings and get data from function parallel thats's why we write await to specific the line to get data 
+                                                  or
+     await keywords is used to wait to promish to resolve . it can only used within an async block . await make code wait until the promish return a result ,allowing for cleaner and more manageable asychonus code 
+                                                   or
+    await operation is used to wait fr promise and get its fullfilled value . it can only used inside on synch function at top level models 
+
+Q2) what is .json() method in JS?
+ans) .json ,ethod of respond interface takes a respond stream and reads it to completion . it return promish which resolve with result of parsing in text as JSON 
+
+Q3)
