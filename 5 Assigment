@@ -28,8 +28,14 @@ ans)react hooks are normal function that allow you to use state and other react 
 Q4) Why do we need a useState Hook?
 ans) evertimes you want your variable to syncs with your UI you need to use usestate hook 
 
+Q5) what is onchange how it works ?
+ans) onchange event occur when the value of HTML is changed 
 
-
+Q6) what is e.target.value ?
+ans) e(short of event) refer to event object automatically passed to th event handler
+     e.target refer to the element that triggered the event 
+     e.target.value retrives the value of the value attribute of the triggered element 
+    e is a object when somethings changed in the tag e(event object ) automatically passed the function and allows us to diffrent diffrent things live e.target.value gives whatpresent value presnt in the tag 
 
 Coding Assignment:
 .Clean up your code
