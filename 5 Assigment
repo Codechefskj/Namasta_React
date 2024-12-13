@@ -43,6 +43,8 @@ ans) arr.filter and arr.map is similar both are iterative the array over the fun
 Q8) what is state ?
 ans) state is a compponent memory that store data or inform about components 
 
+-->> react is one way data binding that's why we used hooks in react 
+
 Coding Assignment:
 .Clean up your code
 .Create a Folder Structure for your app
