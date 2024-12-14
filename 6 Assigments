@@ -98,3 +98,137 @@ ans)  1) LOAD => API => RENDER PAGE AFTER API CALL (500ms)
 
 Q16) where the api call in place ?
 ans) dont call api in return function because everytimes state change the automatically render and call api 
+
+Q17) earlier return ?
+ans) it means we put any condition before main return we reture anythings .
+
+Q18) what is purpose of --no-inline ?
+ans) in react project you add the --no-inline flag to start script it is topically used to bundler like parcel . this flag prevent the bundler from inclining assest like JS and css file directly HTML 
+      eg: "start":"parcel indexx.html --no-incline"
+       purpose of --no-incline : 
+      1) inlining assest :by default ,parcel can inline small asest (like image , JS , CSS) directly into your HTML or inline JS and CSS . this make the initial loading og pages faster by reducing HTTPS request 
+      2) with --no-incline : you add --no-incline , parcel seperated file for assest , which will then linked in HTML file . these seprate file will cached by browser independnty , potential improving performance for subsequnce visit to site 
+
+      when use --no-incline :
+      1) performance and caching : for large assests or production enviroments it often better to have file caching purpose . the way assest like JS or in wont reloaded evertimes 
+      2) devloping enviroments : in devloper enviroments --no-inline may useful if you want keep your HTML clear and seprate from bundler assest for easier debuging and cahing behaviour 
+
+Q18)Play with the useEffect Hook to see when it is called?(before or after render)
+.Play with dependency array in useEffect Hook
+.Play with the developer console by putting a debugger in render and useEffect
+.Call an actual API to get data
+.Handle Error in your API call
+.Build Shimmer UI when data in not loaded
+.Render your UI with actual API data
+.Make Search functionality work
+.Make a Login Logout button which toggles with a state
+ans) 
+
+import { useEffect, useState } from "react";
+import Restruantcard from "./Restruantcard";
+import { Resturantinfo } from "./config";
+import ShimmerUI from "./shimmerUI";
+
+const filter = (searchtext, allResturants) => {
+  return allResturants.filter((restaurant) =>
+    restaurant.info.name.toLowerCase().includes(searchtext.toLowerCase())
+  ); 
+};
+
+const Body = () => {
+  const [allResturants, setallResturants] = useState(Resturantinfo);
+  const [searchtext, setsearchtext] = useState("");
+  const [filterresturant, setfilterresturant] = useState(Resturantinfo);
+
+  useEffect(() => {
+    getresturantinfothroughapi();
+  }, []);
+
+  async function getresturantinfothroughapi() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    const restaurants =
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+    setallResturants(restaurants);
+    setfilterresturant(restaurants);
+    console.log(json); 
+  }
+
+  if (!allResturants) return null;
+  
+  
+  return (
+    <>
+      <div className="main search-container">
+        <input
+          className="inputplace"
+          placeholder="Search restaurants"
+          value={searchtext}
+          onChange={(e) => setsearchtext(e.target.value)}
+        />
+        <button
+          className="button-container"
+          onClick={() => {
+            const data = searchtext
+              ? filter(searchtext, allResturants)
+              : allResturants;
+            setfilterresturant(data);
+          }}
+        >
+          Search
+        </button>
+      </div>
+      <div className="maibodydiv">
+        {filterresturant && filterresturant.length > 0 ? (
+          filterresturant.map((restaurant) => (
+            <Restruantcard {...restaurant.info} key={restaurant.info.id} />
+          ))
+        ) : (
+          <h2>No restaurants found</h2>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Body;
+
+
+import { useState } from "react";
+import { ImagelogoCdn } from "./config"
+
+export let Title = (
+  <a href="/">
+    <img src={ImagelogoCdn}
+      alt="LOGO"
+      className="logo" />
+  </a>
+);
+
+const Header = () => {
+  const [isLoggedin, setisLoggesin] = useState(false)
+
+  return (
+    <div className="mainheader">
+      {Title}
+      < div className="navbaar">
+        <ul>
+          <li>home</li>
+          <li>about</li>
+          <li>contact</li>
+          <li>cart</li>
+        </ul>
+      </div>
+      {isLoggedin ? <button onClick={() => {
+        setisLoggesin(false)
+      }}>LOGOUT</button> :
+        <button onClick={() => {
+          setisLoggesin(true)
+        }}>Login</button>}
+    </div>
+  );
+};
+export default Header
