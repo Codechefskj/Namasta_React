@@ -26,7 +26,23 @@ Q6)Why do we need a useEffect Hook?
 ans) react useeffect hook handle the effect of dependency array . the useeffect hook allow us to perform side effect on components . fetching data , direct update of dom and timer are some side effect .it is called evertimes any state if the dependency array is modified or update 
 
 Q7)What is Optional Chaining?
-ans) 
+ans) the optiaal chaining operator is JS is (?) . it allow you to access properties of nested object or array without having of check nested for null or undefined value . if an intermediate property in the chain is null or undefined , the expresion shprt circuit and return undefined 
+                                                        or
+     the optinal chaining operator access the object  property or call a function . if the object accesed or function called using this operator is undefined or null , the expresion short circuit and evalutes to undefined instead of throwing error 
+     eg -> const adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah',
+  },
+};
+
+const dogName = adventurer.dog?.name;
+console.log(dogName);
+// Expected output: undefined
+
+console.log(adventurer.someNonExistentMethod?.());
+// Expected output: undefined
+
 
 Q8) What is Shimmer UI?
 ans) shimmer ui is visual indicator that shown when app is loading data or processing tasks in background 
@@ -38,8 +54,7 @@ ans)JS expression : an expression is piece of code that evalute to value . it ca
     JS statement : a statment perform an action and doest necessary to produce a value directly . it is compute instrucction in JS 
      eg -> (x>0) {console.log(x)}
 
-Q10) what is the diffrence between JS expression and JS statement?
-ans) expression : 1)produce a value    2) can be assigned to variable 
+    expression : 1)produce a value    2) can be assigned to variable 
      statement  : 1) perform an action  2) cannot directly assigned 
 
 Q11)What is Conditional Rendering, explain with a code example?
