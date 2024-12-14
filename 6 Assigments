@@ -78,4 +78,16 @@ ans) async await is JS is used to simplify handling asynchonous code to appeare 
     the await ketboard is used to wait for promish to resolve .it can used within and synch block  . await make the code wait until the promish return a result . allowing for cleaner and more managelable asynchorus code 
 
 Q14)What is the use of `const json = await data.json();` in getRestaurants()
-ans)
+ans) the line const json = await data.json()
+    .) wait for responce body (from fetch request) to parsed into JS object 
+    .) once resolved it store the parsed object it store the parsed object in json variable so you work with it furthur function such as accesing specific properties of api responce 
+
+    Explanation->
+    fetch():
+    When you make a fetch request, it returns a Response object representing the entire response from the network request. This response object contains information like the status of the request, headers, and the body of the response (which is typically in raw format such as JSON, text, etc.).
+    data.json():
+    The json() method is a built-in function available on the Response object. It reads the raw body of the response and parses it as JSON (JavaScript Object Notation).
+    This method returns a promise that resolves to a JavaScript object, which allows you to work with the response data easily in your code.
+   await:
+   Since json() returns a promise, you need to use the await keyword to pause the execution of your asynchronous function until the promise resolves and the data is parsed.
+    await makes sure that the code waits for the promise to resolve before continuing to the next line of code.
