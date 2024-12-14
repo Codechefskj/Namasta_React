@@ -8,4 +8,50 @@ ans) as we know async function are used to reload everthings and get data from f
 Q2) what is .json() method in JS?
 ans) .json ,ethod of respond interface takes a respond stream and reads it to completion . it return promish which resolve with result of parsing in text as JSON 
 
-Q3)
+Q3)What is a Microservice?
+ans) it is a architectural style for devlpoing application by breaking them down into smallest independent components 
+      how microservices communicates ?
+    1) synchrouns communication : in synchronous communication one services make a request and wait for a response from another 
+      method   common method : rest APIs : serviced expose endpoint that other services call using HTTP method eg-> /api/users  or /api/orders
+    2) asynchrouns communication: in asynchrouns communication a services sends a message to anopther serivices without waiting for responce 
+
+Q4)What is Monolith architecture?
+ans) monolithic architecture is traditional software devlopers model that user a single code base to perform multiple function 
+
+Q5)What is the difference between Monolith and Microservice?
+ans)A monolithic architecture is a traditional software development model that uses one code base to perform multiple business functions. All the software components in a monolithic system are interdependent due to the data exchange mechanisms within the system. It’s restrictive and time-consuming to modify monolithic architecture as small changes impact large areas of the code base. 
+In contrast, microservices are an architectural approach that composes software into small independent components or services. Each service performs a single function and communicates with other services through a well-defined interface. Because they run independently, you can update, modify, deploy, or scale each service as required.
+
+Q6)Why do we need a useEffect Hook?
+ans) react useeffect hook handle the effect of dependency array . the useeffect hook allow us to perform side effect on components . fetching data , direct update of dom and timer are some side effect .it is called evertimes any state if the dependency array is modified or update 
+
+Q7)What is Optional Chaining?
+ans) 
+
+Q8) What is Shimmer UI?
+ans) shimmer ui is visual indicator that shown when app is loading data or processing tasks in background 
+
+Q9) What is the difference between JS expression and JS statement?
+ans)JS expression : an expression is piece of code that evalute to value . it can be used wherever a value . it can be used whetever a value is epected 
+     eg -> let data = 5 ; 
+           console.log(data)
+    JS statement : a statment perform an action and doest necessary to produce a value directly . it is compute instrucction in JS 
+     eg -> (x>0) {console.log(x)}
+
+Q10) what is the diffrence between JS expression and JS statement?
+ans) expression : 1)produce a value    2) can be assigned to variable 
+     statement  : 1) perform an action  2) cannot directly assigned 
+
+Q11)What is Conditional Rendering, explain with a code example?
+ans) conditional rendering in react refer to process of displaying content (or components ) based on specific condition just like using if-else in JS . it allow reat components to decide what to dispalay based on application state or probs 
+  eg -> return (newresturants.length===0)?(<shimmerUI/>) : (--------------)
+
+Q12)What is CORS?
+ans)
+
+Q13)What is async and await?
+ans)
+
+
+Q14)What is the use of `const json = await data.json();` in getRestaurants()
+ans)
