@@ -23,7 +23,7 @@ ans)A monolithic architecture is a traditional software development model that u
 In contrast, microservices are an architectural approach that composes software into small independent components or services. Each service performs a single function and communicates with other services through a well-defined interface. Because they run independently, you can update, modify, deploy, or scale each service as required.
 
 Q6)Why do we need a useEffect Hook?
-ans) react useeffect hook handle the effect of dependency array . the useeffect hook allow us to perform side effect on components . fetching data , direct update of dom and timer are some side effect .it is called evertimes any state if the dependency array is modified or update 
+ans) react useEffect hook handle the effect of dependency array . the useeffect hook allow us to perform side effect on components . fetching data , direct update of dom and timer are some side effect .it is called evertimes any state if the dependency array is modified or update 
 
 Q7)What is Optional Chaining?
 ans) the optiaal chaining operator is JS is (?) . it allow you to access properties of nested object or array without having of check nested for null or undefined value . if an intermediate property in the chain is null or undefined , the expresion shprt circuit and return undefined 
@@ -91,3 +91,10 @@ ans) the line const json = await data.json()
    await:
    Since json() returns a promise, you need to use the await keyword to pause the execution of your asynchronous function until the promise resolves and the data is parsed.
     await makes sure that the code waits for the promise to resolve before continuing to the next line of code.
+
+Q15) what is the diffrent diffrent type if API calls ?
+ans)  1) LOAD => API => RENDER PAGE AFTER API CALL (500ms)
+      2) LOAD => RENDER (100ms) => API (300ms) =>UPDATED UI (500ms)
+
+Q16) where the api call in place ?
+ans) dont call api in return function because everytimes state change the automatically render and call api 
