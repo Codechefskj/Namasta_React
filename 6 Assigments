@@ -62,7 +62,12 @@ ans) conditional rendering in react refer to process of displaying content (or c
   eg -> return (newresturants.length===0)?(<shimmerUI/>) : (--------------)
 
 Q12)What is CORS?
-ans)
+ans) CORS stands cross - origin resource sharing . it is security feature impemented in web browers to control how to resource (API , IMAGE etc) on web page can be requested from diffrent domain one page was served from 
+     key concept :
+    1) same-orgin policy -> by default browser enforce a "same-origin policy" meaning a web page can only access resource from same origin (protocals, domain and ports) it was loaded from 
+       eg-> a page from https;/example.com cannot make requested to https;/api.otherdomain on without permisiion 
+    2) CORS -> cors is mechanism that allow server to specific who origin permisiion access their resource and how (HTTPD METHOD LIKE GET) 
+       eg-> this dom added specific HTTP headed in served responce 
 
 Q13)What is async and await?
 ans)
