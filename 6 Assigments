@@ -24,7 +24,8 @@ In contrast, microservices are an architectural approach that composes software 
 
 Q6)Why do we need a useEffect Hook?
 ans) react useEffect hook handle the effect of dependency array . the useeffect hook allow us to perform side effect on components . fetching data , direct update of dom and timer are some side effect .it is called evertimes any state if the dependency array is modified or update 
-
+                                                                       or
+     useEffect called after the components render . it take two things 1) callback function 2) dependency array 
 Q7)What is Optional Chaining?
 ans) the optiaal chaining operator is JS is (?) . it allow you to access properties of nested object or array without having of check nested for null or undefined value . if an intermediate property in the chain is null or undefined , the expresion shprt circuit and return undefined 
                                                         or
