@@ -1,1 +1,44 @@
-Q1) 
+Q1) What are various ways to add images into our App? Explain with code examples?
+ans) everytimes we add images firstly we create a new folder into source folder who's name is assests and put image into into folder 
+     example : import logo from "../assestd/logo image.jpeg"
+
+     1) Using Image File in the Public Folder : You can place your images in the public folder and reference them in your React components. code:<img src="/images/example.jpg" alt="Example" />
+     2) Importing Image Files from the src Folder: You can import images directly into your components if the image is stored in the src folder. This allows for better bundling and optimization during the build process.  code:<img src={exampleImage} alt="Example" />
+     3)Using Dynamic Image URLs: If you need to use an image from an external source (like a URL or an API), you can directly set the src to the image URL. code: <img src={imageUrl} alt="Example" />
+
+Q2) What would happen if we do console.log(useState())?
+ans) if you call console.log(usestate()) in react components it will print an array , where the first element is current state and second element id function that can use to update state 
+     by default usestate() accept optimal initial state as arguments . if you call usestate () without arguments it will initialize the state with undefined 
+     ex-> console.log(usestate())
+     the first elements of array will be undefined because you did not pass any initial state value to usestate()
+
+     the secound element of function that update state . it will be function like setstate 
+
+     ** react says that never write usestate inside the if condition , loops , outside the functional components 
+
+     ** usestate is hook that react give you to create local variable inside the functional components 
+
+     ** react says that never create function inside the components 
+
+Q3) How will useEffect behave if we don't add a dependency array ?
+ans) when we dont have dependency array then useeffect callback function  called after every render 
+      dependency array : 
+      1) nothing : callback function called every render 
+      2) [] : callback function called once after 1st render 
+      3) [search] : callback function called everytimes state change 
+
+Q4) What is SPA?
+ans) a web application that loads all nesesacary resource during the initial page load and dynamically update the content without refreshing the entire page 
+    how it works :
+   1) initial loads -> the browser loads the initial index.html along with read JS bundler 
+   2) routing -> when user navigate diffrent parts of application , react update the UI dynamically without requestion to server for new HTML
+   3) state managments -> react user state and props to manage and update the UI efficiently 
+   4) API calls -> when data is fetched via API and react components re-render with new data 
+
+Q5)What is difference between Client Side Routing and Server Side Routing?
+ans) client side routing :
+     the routing process handled internally by JS on user devices . when user click a link , the app prevent a request to server and render the page from what already saved . these means client side app works without internet connection if its already been loaded 
+     client side routing good option for static page or loading page 
+     the srever side routing :
+     the server privide a new page to user each time a link clicked this is tradition method  handling router in web application . server side routing times have advantages like loading times improved SEO and better performed 
+     on low network . however every request result in full page refresh which can efficiently 
