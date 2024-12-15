@@ -11,7 +11,6 @@ ans) if you call console.log(usestate()) in react components it will print an ar
      by default usestate() accept optimal initial state as arguments . if you call usestate () without arguments it will initialize the state with undefined 
      ex-> console.log(usestate())
      the first elements of array will be undefined because you did not pass any initial state value to usestate()
-
      the secound element of function that update state . it will be function like setstate 
 
      ** react says that never write usestate inside the if condition , loops , outside the functional components 
@@ -19,6 +18,8 @@ ans) if you call console.log(usestate()) in react components it will print an ar
      ** usestate is hook that react give you to create local variable inside the functional components 
 
      ** react says that never create function inside the components 
+
+     ** we can create more than one useeffect 
 
 Q3) How will useEffect behave if we don't add a dependency array ?
 ans) when we dont have dependency array then useeffect callback function  called after every render 
@@ -42,3 +43,128 @@ ans) client side routing :
      the srever side routing :
      the server privide a new page to user each time a link clicked this is tradition method  handling router in web application . server side routing times have advantages like loading times improved SEO and better performed 
      on low network . however every request result in full page refresh which can efficiently 
+
+=> generally thougth :
+there are pakages name React-Router-Dom because We use React Router DOM to manage navigation in a Single Page Application (SPA) built with React 
+there are two things are in react router don 1) createbrowserRoute : CreateBrowserRouter is a function in the React Router library that allows developers to configure a router that uses the HTML5 history API
+coding example : 
+const approuter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/about",
+        element: <Aboutpage />,
+      },
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/contact",  
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:id",  
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+]);
+
+2)router provider : the router provider is like main hub of react router , where all routing process come together . it acts as gateway routing functiom 
+  in our app . by binding our parent components have easy access to routing features and can play their part routing process 
+coding example -> 
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={approuter} />);
+
+3) error : we create a error components for error routing we put this error page into createBrowserRouter 
+coding example -> errorElement: <Error />
+
+4) there are new hooks that we used whose name is useRouteError(): this hooks gives the error type and we used this hooks for error details 
+ coding example -> 
+import { useRouteError } from "react-router-dom";
+
+const Error = () => {
+  const err = useRouteError();
+
+  return (
+    <>
+      <div className="mainerrordiv">
+        <h1>Oops!!</h1>
+        <h2>Something went wrong. You can't access this page.</h2>
+        <p>{err.error.
+          message}</p>
+      </div>
+    </>
+
+  );
+};
+
+export default Error;
+
+5) Outlet : The Outlet component in React Router DOM is a placeholder that allows child routes to be rendered within a parent route
+6) <LINK/> : link is components from react router dom . the link components is used for routing from one page to another page without loaing the page itelf it follow the single page application 
+ we cannot used anchor tag because it refresh full page 
+ coding exmple : 
+          <Link to={"/"}><li>home</li></Link>
+          <Link to={"/about"}><li>about</li></Link>
+          <Link to={"/contact"}><li>contact</li></Link>
+
+ we create to={"/"} or to={"/about"} or to={"/contect"} for createbrowserrouter 
+
+6) here we create dynamic routing coding example : 
+        path: "/restaurants/:id",  
+        element: <RestaurantMenu />,
+
+7) we used new hooks named is useparam(): it help us to gives the id which we mention in routing 
+8) we call api to fetched the information about resturants  using resturants id
+   then we build the resturants menu out idea is that we add <link to={"/resturant" + resturats.info.id }> to fetch the information about the restuarants 
+    this is resturants information components 
+
+    import { useEffect, useState } from "react";
+    import { useParams } from "react-router-dom";
+    import { Resturantimageinfo } from "./config";
+    import ShimmerUI from "./shimmerUI";
+
+    const RestaurantMenu = () => {
+    const params = useParams()
+    let { id } = params
+
+    const [resturants, setresturants] = useState([]);
+
+  useEffect((() => {
+    getresturantinfo();
+  }), [])
+
+  async function getresturantinfo() {
+    const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId="+id+"&catalog_qa=undefined&submitAction=ENTER");
+
+    const json = await data.json();
+    // console.log(json.data.cards[2].card.card.info);
+    setresturants(json?.data?.cards[2]?.card?.card?.info);
+  }
+
+  return (resturants?.length===0)?(<ShimmerUI/>): (
+
+    <div className="mainresturantsmenu">
+      <div className="namediv">
+      <h1>{resturants.name}</h1>
+      <h2>restaurantId : {params.id}</h2>
+      </div>
+      <div className="imagediv">
+      <img src={Resturantimageinfo + resturants.cloudinaryImageId}></img>
+      </div>
+      <div className="bottom">
+      <h3>{resturants.city}</h3>
+      <h3>{resturants.locality}</h3>
+      <h3>{resturants.costForTwoMessage}</h3>
+      </div>
+    </div>
+  );
+}
+export default RestaurantMenu;
+      },
+
