@@ -1,1 +1,19 @@
-Q1) 
+Q1) How do you create Nested Routes react-router-dom cofiguration?
+ans) for this we can create children of children 
+  const approuter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/about",
+        element: <Aboutpage />,
+        children:[
+          {
+            path:"profile",
+            element:<Profile/>
+          }
+        ]
+      },
+we can put <Outlet to={"/profile"}/> in the Aboutpage page 
