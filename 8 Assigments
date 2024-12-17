@@ -16,4 +16,213 @@ ans) for this we can create children of children
           }
         ]
       },
-we can put <Outlet to={"/profile"}/> in the Aboutpage page 
+we can put <Outlet to={"/profile"}/> in the Aboutpage page because outlet is placeholder where the children are placed 
+
+Q2) Read abt createHashRouter, createMemoryRouter from React Router docs?
+ans) createhashrouter : it is components in react router dom library .  it is used for implementation client side routing in react application . the hashrouter uses the hash portion (#) of URL manages the client side in react router dom . it create a simple efficient of handling navigation without causing full page to reload 
+     the only diffrence between hashrouter and browserrouter is how they treate URL 
+    hashrouter : https://example.com/# / dashboard/profile
+    browserrouter : https:/example.com / dashboard / profile 
+
+   createmenoryrouter : memory router is type of router provider by react router that manages routing internally within react application without maniputation the browser URL . it is used when you want to handle roouting within your application state or memory making it suitable for scenerio like testing or isolated ui components 
+    coding example :
+     import React from "react";
+import { MemoryRouter, Routes, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+    <MemoryRouter>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </MemoryRouter>
+  );
+}
+
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+   export default App;
+     output --> 
+     Output Behavior:
+      The app works like a normal React Router app.
+      Clicking links navigates between routes.
+         URL in Browser: The URL in the browser does not change because navigation is handled in memory.
+
+Q3) What is the order of life cycle method calls in Class Based Components?
+ans)  firstly we call constructor<render function < compountdidmounted < compountdidupdate< compountwillunmount 
+
+       copnstructor : it is function that we used in classbasedcomponents for making state 
+                            constructor(props){
+                             super(props);
+                             this.state={
+                              count: 0 ,}}
+       using state in classbasedcomponents are : <h3>{this.state.name}</h3>
+       
+    renderfunction : it is mendatory to write before the return statement  render() {
+    console.log("children - render")
+    return (
+      <>      
+      <h1>This is a class-based component</h1>
+      <h2>name : {this.props.nameee}</h2>
+      <h3>{this.state.name}</h3>
+      <h3>{this.state.login}</h3>
+      <h3>{this.state.id}</h3>
+      </>
+    );
+  }
+
+  compountdidmounted: it is function call when first render , render function then it call . it is best place to call API because we want first render the render function then api call 
+  compountdidupdate : it is things that call after the every second render 
+  compountdidunmount : it is things that call when we change the render components 
+  ex parents - constructor
+     parents - render function 
+     children - constructor 
+     children - render 
+     parents -  componentsdidmount 
+    children - componentsdidmount (it has asynch function it means firslty do all things then call api )
+    children - render function 
+    children - coumpontsdidmounts 
+    children - compountsdidunmount 
+
+   example : parent-constuctor
+   children - constructor
+   children - render
+   childeren - componentsdidmount
+    parents-compontsdidmount
+   {login: 'Codechefskj', id: 143904130, node_id: 'U_kgDOCJPNgg', avatar_url: 'https://avatars.githubusercontent.com/u/143904130?v=4', gravatar_id: '', …}
+   children - render
+   children - compountdidmoounted
+
+  example : parent-constuctor
+            parents-render
+            children - constructor
+            children - render
+            parents-compontsdidmount
+            {login: 'Codechefskj', id: 143904130, node_id: 'U_kgDOCJPNgg', avatar_url: 'https://avatars.githubusercontent.com/u/143904130?v=4', gravatar_id: '', …}
+            childeren - componentsdidmount
+             children - render
+             children - compountdidmoounted
+
+
+####(https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+Q4) Why do we use componentDidMount?
+ans) componentsDidMount() method is used to perform task after a compounts is mounted on screen 
+     it is best place to call API 
+
+Q5) Why do we use componentWillUnmount? Show with example?
+ans) the compountsdidunmounts lifecycle method in react is used to perform cleanup operation just before components is removed from the DOM it is commonly used in classbasedcomponents 
+     why do we use compountdidunmount :
+     1) clean intervals :
+        stop setintervals or set timeouts 
+    2) cancel animation : 
+       stop ongoint animatin or transition 
+    3) free resource :
+       clean up any resource allocation during components lifecycle 
+   example :   
+       import React, { Component } from "react";
+
+        class Counter extends Component {
+         constructor(props) {
+          super(props);
+          this.state = { count: 0 };
+  }
+
+         componentDidMount() {
+         // Start a timer that increments the counter every second
+          this.interval = setInterval(() => {
+          this.setState((prevState) => ({ count: prevState.count + 1 }));
+         }, 1000);
+        }
+
+          componentWillUnmount() {
+           // Cleanup the interval to prevent memory leaks
+              clearInterval(this.interval);
+           console.log("Component unmounted and interval cleared");
+          }
+
+          render() {
+          return (
+         <div>
+         <h1>Count: {this.state.count}</h1>
+        </div>
+        );
+        }
+}
+
+           in function based compounts there are also things like coumpountdidunmount which we written in useeffect hooks :
+          example : 
+import React, { useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Start a timer
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+
+    // Cleanup function (equivalent to componentWillUnmount)
+     return () => {
+      clearInterval(interval);
+      console.log("Interval cleared");
+    };
+  }, []);
+
+  return <h1>Count: {count}</h1>;
+}
+
+export default Counter;
+
+export default Counter;
+
+here return statement we written in useeffect hooks to cleanup operations just before a components in removed from this dom 
+
+
+Q6) Why do we use super(props) in constructor?
+ans) 1) inheritance in ES6 classes
+     .) in JS class that extents another class must call super() method in constructor before accessing this 
+     .) if you dont call super() you ll gett a reference error 
+
+     2) passing props to parents class:
+     .) react uses the props object to pass data from parents to child components 
+      .) by calling super(props) you make sure the props object is passes to base class (react.compponents) allowing react to handle in internally 
+
+      3) accessing this.props:
+     .) without super(props) attemption to access this.props inside the constructor wi;; result is undefined 
+
+     What Happens Without super(props)?
+    .)If you don’t call super(props):
+    .)The props object is not initialized in the React.Component class.
+    .)Accessing this.props in the constructor will throw an error.
+
+Q7) Why can't we have the callback function of useEffect async?
+ans) 
+      You cannot make the callback function of useEffect directly async because:
+      1) useEffect expects the return value to be a cleanup function or undefined:
+      An async function always returns a Promise, not a function or undefined.
+      React interprets the returned Promise as a cleanup function, which leads to unexpected behavior or warnings.
+     jsx
+     example : 
+     useEffect(async () => {
+     // ❌ Not allowed because React expects a cleanup function, not a Promise
+});
+2) React relies on synchronous cleanup:
+    React needs the cleanup function (if any) to be executed synchronously during unmount or re-render.
+    An async function would delay the cleanup, which could cause issues, especially when the component is unmounting quickly or updating frequently.
+
+
+      thought --->
+
+
