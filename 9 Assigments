@@ -1,1 +1,78 @@
+Q1) when and why do we need lazy();?
+ans) in react lazy() is used to implemented code splitting for react components . it allow you to dynamically load components only when they are needed rather than loading everythings upfront when app first loads 
+     this significants improve the perform of your application by reducing initial bundle size large application 
+     
+    When to use React.lazy():
+   .) lares applicatiopn :-> when your application cointain many components but not all them required immediate
+   .) conditional rendering :-> when certain components only needed in specific situation or user interaction 
+   .) reducing initial loads :-> to speed up initial leading your application by defering the loading non-essential components until they are required 
 
+    Why use React.lazy():
+    .) improved performed ->: by breaking code into smallest chunk and loading only what needed the application loaded fast 
+    .) reduced initial bundle size ->: it help in splitting your JS bundler into smalles 
+    .) user experience ->: by loading components only when needed , user experience fast load 
+
+Q2) what is suspense ?
+ans) now index.js file in dist folder wont have code of instament . it is created as seprate file while loading this called on-demand loading
+    "when you loading your components in demand react tries to suspend it "
+     so when instamartloaded for first time we see error message on screen this is because instamart file took 27ms to loaded 
+    but in react tries to render it before it get loaded thats why error comes 
+
+   solution of this :  "suspense" -> we can wrap instamart inside suspense 
+                                            or
+    suspense is components that allow you handle asynchrous rendering (the ablity to pause and resume the rendering process of compounts ) in more declarative ways 
+    it is primarly used to manages the state of components that are lazy loaded or fetching 
+    fallback : this props waiting what to displace while waiting for lazy loadimg components or data to fetch 
+
+Q3) why we got the error . the components suspended the asychorous input . this will cause the UI to suspent should we wrapped with starttransition ? how this suspence fixed this error?
+ans) the error "a compount suspended while responding to asynchrous input " means  a react compounts is waiting for external data from asynchruos operation (like lazy, api ) to render , cause the ui is freeze while it wait 
+      explaination : 
+      asynchrous operation - when compount tries to render the data that is still being fetched from external source (like API) it need wait to get data to arrive before rendering which can lead to  temp "suspended" state where UI is not fully updated 
+      suspence boundary - when a compount within suspense boundary is waiting for data , react will automically display the fallback content until data available 
+
+       why "starttransition" is not solution :
+     the purpose of starttrantion is used to mark update that should be treated as "low priority" and allo UI to update smoothly during the transition , it actually does not handle suspension issue causes by waiting for asychrous data 
+
+Q4) advantage of` disadvantage of using code splitting patterns or chunking , dynamic bundling , lazyloading , on demand loading ?
+ans(                                      advantage 
+   1)  Improved Performance :
+       Reduced Initial Load Time: Only essential code is loaded during the initial render, improving page load speed and time-to-interactivity.
+   2) Better User Experience :
+      On-demand Loading: Non-critical resources are loaded when needed, providing a smoother user experience.
+   3) Smaller JavaScript Bundles:
+      Large applications are divided into smaller chunks, reducing the size of each JavaScript file. This helps avoid browser limitations like script parsing delays.
+   4) Scalability:
+      Makes it easier to manage larger applications by splitting them into smaller, logical chunks.
+
+                                         disadvantage
+   1)  Increased Complexity:
+       Managing code splitting and lazy loading introduces extra complexity into the project.
+   2) Error Handling :
+      Dynamic imports may fail due to network issues or other runtime errors. You need to implement error boundaries or fallback mechanisms to handle these gracefully.
+   3) understanding the flow of dynamically loaded code can be harder compared to a single bundled file.
+   4) Perceived Latency :
+      If a component is lazily loaded, users might notice a delay when accessing the feature for the first time
+
+Q5) when and why do we need suspense ?
+ans)                     When to Use Suspense->
+     1) Lazy Loading Components:
+        When you load components dynamically using React.lazy(), Suspense can show a fallback UI (e.g., a spinner) while the component is being fetched.
+    2)  Fetching Data
+    3) Code Splitting :
+       Suspense helps manage the delay caused by code splitting using tools like Webpack. It ensures parts of the UI are loaded only when needed without freezing the app.
+    4) Rendering Nested Dependencies:
+       In large applications where components depend on nested resources, Suspense allows for better error and loading management across the component tree.
+    5) UI Smoothness:
+       For complex apps, Suspense ensures that slow-loading components don’t block the rest of the UI, keeping the app responsive.
+
+                        Why Do We Need Suspense->
+    1) Asynchronous Handling:
+       React is synchronous by default, but modern apps often rely on async operations like fetching data or loading components. Suspense bridges this gap and provides a unified way to manage asynchronous states.
+    2) Seamless Loading States :
+    Instead of manually tracking and handling loading states, Suspense offers a declarative way to show fallback UI while async tasks are resolved.
+    3) Improved User Experience:
+        Keeps the UI responsive by isolating slow components or operations and showing a fallback instead of blocking the entire app.
+    4) Simplifies Code:
+        Suspense abstracts the complexity of managing loading states, allowing developers to focus on functionality rather than state management.
+    5) Error Isolation :
+      Suspense, when combined with error boundaries, helps gracefully handle errors in asynchronous tasks, such as network failures.
