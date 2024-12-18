@@ -15,47 +15,47 @@ ans) in react lazy() is used to implemented code splitting for react components 
 Q2) what is suspense ?
 ans) now index.js file in dist folder wont have code of instament . it is created as seprate file while loading this called on-demand loading
     "when you loading your components in demand react tries to suspend it "
-     so when instamartloaded for first time we see error message on screen this is because instamart file took 27ms to loaded 
+    so when instamartloaded for first time we see error message on screen this is because instamart file took 27ms to loaded 
     but in react tries to render it before it get loaded thats why error comes 
 
-   solution of this :  "suspense" -> we can wrap instamart inside suspense 
+    solution of this :  "suspense" -> we can wrap instamart inside suspense 
                                             or
     suspense is components that allow you handle asynchrous rendering (the ablity to pause and resume the rendering process of compounts ) in more declarative ways 
     it is primarly used to manages the state of components that are lazy loaded or fetching 
     fallback : this props waiting what to displace while waiting for lazy loadimg components or data to fetch 
 
-Q3) why we got the error . the components suspended the asychorous input . this will cause the UI to suspent should we wrapped with starttransition ? how this suspence fixed this error?
-ans) the error "a compount suspended while responding to asynchrous input " means  a react compounts is waiting for external data from asynchruos operation (like lazy, api ) to render , cause the ui is freeze while it wait 
+Q3)   why we got the error . the components suspended the asychorous input . this will cause the UI to suspent should we wrapped with starttransition ? how this suspence fixed this error?
+ans)  the error "a compount suspended while responding to asynchrous input " means  a react compounts is waiting for external data from asynchruos operation (like lazy, api ) to render , cause the ui is freeze while it wait 
       explaination : 
       asynchrous operation - when compount tries to render the data that is still being fetched from external source (like API) it need wait to get data to arrive before rendering which can lead to  temp "suspended" state where UI is not fully updated 
       suspence boundary - when a compount within suspense boundary is waiting for data , react will automically display the fallback content until data available 
 
-       why "starttransition" is not solution :
-     the purpose of starttrantion is used to mark update that should be treated as "low priority" and allo UI to update smoothly during the transition , it actually does not handle suspension issue causes by waiting for asychrous data 
+      why "starttransition" is not solution :
+      the purpose of starttrantion is used to mark update that should be treated as "low priority" and allo UI to update smoothly during the transition , it actually does not handle suspension issue causes by waiting for asychrous data 
 
 Q4) advantage of` disadvantage of using code splitting patterns or chunking , dynamic bundling , lazyloading , on demand loading ?
-ans(                                      advantage 
+ans)                                                    advantage 
    1)  Improved Performance :
-       Reduced Initial Load Time: Only essential code is loaded during the initial render, improving page load speed and time-to-interactivity.
-   2) Better User Experience :
-      On-demand Loading: Non-critical resources are loaded when needed, providing a smoother user experience.
-   3) Smaller JavaScript Bundles:
-      Large applications are divided into smaller chunks, reducing the size of each JavaScript file. This helps avoid browser limitations like script parsing delays.
-   4) Scalability:
-      Makes it easier to manage larger applications by splitting them into smaller, logical chunks.
+       Reduced Initial Load Time -> Only essential code is loaded during the initial render, improving page load speed and time-to-interactivity.
+   2)  Better User Experience :
+       On-demand Loading -> Non-critical resources are loaded when needed, providing a smoother user experience.
+   3)  Smaller JavaScript Bundles :
+       Large applications are divided into smaller chunks, reducing the size of each JavaScript file. This helps avoid browser limitations like script parsing delays.
+   4)  Scalability :
+       Makes it easier to manage larger applications by splitting them into smaller, logical chunks.
 
-                                         disadvantage
-   1)  Increased Complexity:
+                                                       disadvantage
+   1)  Increased Complexity :
        Managing code splitting and lazy loading introduces extra complexity into the project.
-   2) Error Handling :
-      Dynamic imports may fail due to network issues or other runtime errors. You need to implement error boundaries or fallback mechanisms to handle these gracefully.
-   3) understanding the flow of dynamically loaded code can be harder compared to a single bundled file.
-   4) Perceived Latency :
-      If a component is lazily loaded, users might notice a delay when accessing the feature for the first time
+   2)  Error Handling :
+       Dynamic imports may fail due to network issues or other runtime errors. You need to implement error boundaries or fallback mechanisms to handle these gracefully.
+   3)  understanding the flow of dynamically loaded code can be harder compared to a single bundled file.
+   4)  Perceived Latency :
+       If a component is lazily loaded, users might notice a delay when accessing the feature for the first time
 
 Q5) when and why do we need suspense ?
-ans)                     When to Use Suspense->
-     1) Lazy Loading Components:
+ans)                                               When to Use Suspense->
+    1) Lazy Loading Components:
         When you load components dynamically using React.lazy(), Suspense can show a fallback UI (e.g., a spinner) while the component is being fetched.
     2)  Fetching Data
     3) Code Splitting :
@@ -65,14 +65,92 @@ ans)                     When to Use Suspense->
     5) UI Smoothness:
        For complex apps, Suspense ensures that slow-loading components don’t block the rest of the UI, keeping the app responsive.
 
-                        Why Do We Need Suspense->
+                                                  Why Do We Need Suspense->
     1) Asynchronous Handling:
        React is synchronous by default, but modern apps often rely on async operations like fetching data or loading components. Suspense bridges this gap and provides a unified way to manage asynchronous states.
     2) Seamless Loading States :
-    Instead of manually tracking and handling loading states, Suspense offers a declarative way to show fallback UI while async tasks are resolved.
+       Instead of manually tracking and handling loading states, Suspense offers a declarative way to show fallback UI while async tasks are resolved.
     3) Improved User Experience:
-        Keeps the UI responsive by isolating slow components or operations and showing a fallback instead of blocking the entire app.
+       Keeps the UI responsive by isolating slow components or operations and showing a fallback instead of blocking the entire app.
     4) Simplifies Code:
-        Suspense abstracts the complexity of managing loading states, allowing developers to focus on functionality rather than state management.
+       Suspense abstracts the complexity of managing loading states, allowing developers to focus on functionality rather than state management.
     5) Error Isolation :
-      Suspense, when combined with error boundaries, helps gracefully handle errors in asynchronous tasks, such as network failures.
+       Suspense, when combined with error boundaries, helps gracefully handle errors in asynchronous tasks, such as network failures.
+
+
+                                               GENERAL THOUGHT 
+
+
+1) we create hook because code must be readiblity , resuablity , this make for testable , it make code maintable 
+2) we can used named export or default export by seing the components file name 
+3) whenever you create hook firslty build util folder to maintain hook . always create hook by use... 
+4) hooks are diffrent to functional components 
+   hooks -> hooks is piece of JS code that extract logic , it return object, array etc . we can put return statment for that 
+   functional components return some ppiece of jsx 
+   example create hooks 
+   import { useEffect, useState } from "react";
+   const useRestaurants = (id) => {
+   const [restaurants, setRestaurants] = useState([]);
+
+   useEffect(() => {
+   getRestaurantInfo();
+   }, []); 
+   async function getRestaurantInfo() {
+   const data = await fetch(
+   `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
+    );
+
+    const json = await data.json();
+    setRestaurants(json?.data?.cards[2]?.card?.card?.info);
+    }
+
+    return restaurants; 
+    };
+    export default useRestaurants;
+
+5) ** always remember used return statment in usefect when you using addeventlishtner in useeffect it is better practics for that . you can see the above coding example how this hook indicate the you are offline or online this function are used by window.addeventlishner("offline" , ()=>{ })
+   here you can write the function when you are offline and doing same with online . then you can clear the eventlishtner by using window.removeEventListener("offline", ()=>{ }); here you can write same function that you written in the time of addeventlishner 
+   coding example : 
+    import { useEffect, useState } from "react";
+
+    const useOffline = () => {
+    const [status, setStatus] = useState(false);
+
+    useEffect(() => {
+    const handleOffline = () => setStatus(true);
+
+    const handleOnline = () => setStatus(false);
+
+    window.addEventListener("offline", handleOffline);
+    window.addEventListener("online", handleOnline);
+
+    return () => {
+      window.removeEventListener("offline", handleOffline);
+      window.removeEventListener("online", handleOnline);
+       };
+       }, []);
+
+      return status; 
+      };
+
+    export default useOffline;
+
+6) chunking , codespliting , dynamic bundling , layz loading , on demand , dynamic import all are same 
+7) we have so many components in the project . bundler give only one JS file it make our application slower that why we used lazy loading 
+8) we can import like this when we used lazy() 
+          const Instamart = lazy(() => import("./components/Instamart.js"));
+9) and path like this 
+                     {
+         path: "/Instamart" ,
+         element: <Suspense fallback={<ShimmerUI/>}><Instamart/></Suspense>
+      },
+
+10) never dynamically lazy() load inside another components because it render everytimes when rendering 
+11) lazy is a function that react provide us 
+12) How React.lazy() Works
+Dynamic Import: React.lazy() uses the import() syntax to dynamically load a component. This creates a separate bundle for the lazy-loaded component, which is only downloaded when the component is rendered for the first time.
+Suspense for Loading States: To handle the time delay while the lazy-loaded component is being fetched, React provides the Suspense component. You can specify a fallback UI to show while the lazy-loaded component is being loaded.
+
+
+
+
