@@ -44,7 +44,9 @@ ans) .) npm install -D tailwindcss postcss (write the terminal)
              @tailwind base;
              @tailwind components;
              @tailwind utilities;
-          }
+          } 
+       these are library inside the tailwind
+
 Q3) In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
 ans) contents : it means ,  tailwinds are only using these type of file      {"./src/**/*.{html,js,ts,jsx,tsx}"}
      theme : the theme property is where you customize the default design system provided by tailwinds you can define colour , spacing etc 
