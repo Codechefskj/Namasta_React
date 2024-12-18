@@ -1,1 +1,96 @@
-Q1) 
+Q1) Explore all the ways of writing css?
+ans) 1) basic normal css 
+     2) incline css 
+     3) SCSS AND SASS
+     4) COMPONENTS LIBRARY 
+ 1) basic normal css : in this type we give class to the html tag and write css in indix.css file
+ 2) incline css : in this type of styling we write like this 
+           const hello=()=> {
+                background-colour : red }
+           <h1 style = {hello}><h1/>
+3) SCSS (sassy css) is syntak of sacc a popular preprocess sxripting languages that is interpreted or compiled into css . it extended feature like variable , nested rules , mixins and more which make css more maintable , resuable , and easier to write espically for large project 
+   feature are ->
+   .) variable : store reusable value like colour , fonts or dimension ex-> $primary-colour :#387837 
+                                                                            body {
+                                                                             background-colour :$primary-colour
+                                                                            }
+   .) nesting : write css rules inside one another , mimicking structures of HTML ex->nav{ ul { margin : 0 ; padding : 0 ;} li { list-style : none }}}
+   .) mixines: create resuable code block that can be dynamic behaviour ex-> @mixin center {
+
+                                                                                            }
+                                                                                      .cointerner @include center;}
+    .) inheritance : share styles between selector using @extent   eg-> .button { padding : 10px 20px
+                                                                                   colour:white ;}
+                                                                                 .primary button {@extend.button}
+    .) partial and import : break your scss code into smaller filr include @use and @import 
+
+   sass(syntactically awesome stylesheet) is a css preprocess meaning it extend the functionally of css by adding powerfully like variable nested rule , mixin and more 
+   sass help devloper write code cleaner , more organized and resuasable for webproject once written sass is compiled into regular css that browser understands 
+4) components library : this is things that we used pre build the css like (chakra , ant-design , material-ui , material , bootstrapt , styled-components) 
+
+Q2) How do we configure tailwind?
+ans) .) npm install -D tailwindcss postcss (write the terminal)
+        npx tailwindcss init
+
+     .) create a folder .postcssrc into source folder 
+     .) write the code {
+                       "plugins": {
+                       "tailwindcss": {}
+                                }
+                                    }
+       {it tells bundler ohh you are using tailwinds when you compile the things treat the tailwinds css into normal css and write normal css}
+     .) write the index.css into 
+          {
+             @tailwind base;
+             @tailwind components;
+             @tailwind utilities;
+          }
+Q3) In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
+ans) contents : it means ,  tailwinds are only using these type of file      {"./src/**/*.{html,js,ts,jsx,tsx}"}
+     theme : the theme property is where you customize the default design system provided by tailwinds you can define colour , spacing etc 
+     purpose -> to custimize or overide the default tailwinds theme value like colour etc 
+     example -> 
+theme: {
+  colors: {
+    primary: '#3490dc',
+    secondary: '#ffed4a',
+  },
+},
+
+  extend: the extend property is part of theme property use it to add value or extend one without completely overiding default tailwinds them 
+  purpose-> to add or extend value like new colour elc
+             it prevent overwritten the entire default theme object 
+  key diffrence -> without extent : override the entire theme key 
+                   with extent : add or modify specifuc part of them 
+
+ plugins : the plugin allow you to add aditional functionality to tailwinds by including pre-build or custom plugins 
+                      what plugins do : 1) include official plugins 2) add third party plugins 3) write custom plugin
+
+
+                                                      HOW CAN DO PLUGINS 
+1) module.exports = {
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
+};
+
+2) module.exports = {
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.skew-15': {
+          transform: 'skewY(-15deg)',
+        },
+        '.skew-30': {
+          transform: 'skewY(-30deg)',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
+};
+
+Q4) Why do we have .postcssrc file?
+ans) it tells bundler ohh you are using tailwinds when you compile the things treat the tailwinds css into normal css and write normal css
