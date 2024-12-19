@@ -1,2 +1,7 @@
 Q1) what is props drilling ?
 ans) props drilling is react is process of passing data from through multiple layer of components in react application 
+
+Q2) how can we write if condition in the react ?
+ans) we can write like this {isvisible && <p className="text-gray-600 text-lg leading-relaxed">{description}</p>}
+
+Q3) 
