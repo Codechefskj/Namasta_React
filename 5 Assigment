@@ -25,6 +25,8 @@ ans)react hooks are normal function that allow you to use state and other react 
                                           or
  hooks functiono that allow devloper to use state and other react feature without written class components 
 
+** hooks can called inside the function 
+
 Q4) Why do we need a useState Hook?
 ans) evertimes you want your variable to syncs with your UI you need to use usestate hook 
 
