@@ -3,5 +3,7 @@ ans) props drilling is react is process of passing data from through multiple la
 
 Q2) how can we write if condition in the react ?
 ans) we can write like this {isvisible && <p className="text-gray-600 text-lg leading-relaxed">{description}</p>}
+   and second method is like 
+   {isvisible? () : () }
 
 Q3) 
