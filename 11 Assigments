@@ -6,4 +6,18 @@ ans) we can write like this {isvisible && <p className="text-gray-600 text-lg le
    and second method is like 
    {isvisible? () : () }
 
-Q3) 
+
+** suppose all 
+Q3) what is liftiing the state up ?
+ans ) is a  concept in react where you move the state from child components to common parents components in order to share that is done when multiple components need to modify the same state and its more efficient to store the state in common ancestor rather than it each individual child components 
+
+Q4) what is advantange and disadvantage of using props drilling ?
+ans) advantage :
+     1) easy to understand : prop drilling is simple and easy to understand , specially in small application 
+     2) clear data flow: prop drilling promotion clear and predicatable dataflow 
+     3) code rediability : prop drilling improve code rediablity 
+    disadvantage :
+    1) it is not good way like prop drilling because sometimes components  does  need the data  but passed the data after the data 
+    2) unnessart clushter (there are so many variable into application )
+    3) suppose we can change the data into the props so in render time it render all the application 
+
