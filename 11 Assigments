@@ -19,5 +19,7 @@ ans) advantage :
     disadvantage :
     1) it is not good way like prop drilling because sometimes components  does  need the data  but passed the data after the data 
     2) unnessart clushter (there are so many variable into application )
-    3) suppose we can change the data into the props so in render time it render all the application 
+    3) suppose we can change the data into the props during render time it render all the application 
 
+Q5) what is context provider and context cunsumer ?
+ans) 
