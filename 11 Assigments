@@ -129,3 +129,10 @@ ans) context provider :->
           </header>
         )}
       </UserContext.Consumer>
+
+Q6) if you not pass the value to the provider does it take dafault value ?
+ans) Yes, if you do not pass a value to the Provider, it will use the default value that was set when you created the context using createContext().
+
+     How It Works :
+     When you create a context with createContext, you can provide a default value. This default value is used if no value is passed to the Provider.
+     If you don't pass a value to the Provider, the context consumers will receive this default value.
