@@ -73,7 +73,7 @@ isVisible={visiblesection === "Instamartteam"} → true (text for "Instamartteam
 
 
 Q5) what is context provider and context cunsumer ?
-ans) context provider : 
+ans) context provider :-> 
      1) context prpvider a way to pass data through the componets tree without having to pass props down manually at every level 
         in typically react application data is passed top- down (parent to child) via props but such usage can be cumbersone for certain components within the application . context provider a way to share value like them between components without having explicit pass a props through every level of tree 
      2) we can create one or more context provider in the project 
@@ -106,3 +106,26 @@ ans) context provider :
    8) why we need context provider ?
       .) prop drilling : for deep nested structute this can leads to clushted and hard to mainted 
       .) global state managments : it maintain global state 
+   9) here you can access the data into another 
+    example :
+              import React, { useContext } from "react";
+              import UserContext from "./UserContext"; // Import the context
+              const Header = () => {
+              const { user } = useContext(UserContext);
+
+     context cunsumer :->   this this we used in class based components 
+                            Context.Consumer in Functional Components:
+
+     Context.Consumer is used to access the context data when you're not using useContext. It's a traditional way to consume context, especially in class-based components or when you need to use the render prop pattern.
+     In functional components, useContext is the preferred and more concise way to access context data. It simplifies the process and doesn't require wrapping the component with Context.Consumer.
+
+    It's used to read the context data and render UI based on it.
+     example :
+       <UserContext.Consumer>
+          {(context) => (
+             <header>
+                <h1>Welcome, {context.name}!</h1>
+            <p>Your email is: {context.email}</p>
+          </header>
+        )}
+      </UserContext.Consumer>
