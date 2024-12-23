@@ -7,11 +7,7 @@ ans) we can write like this {isvisible && <p className="text-gray-600 text-lg le
    {isvisible? () : () }
 
 
-** suppose all 
-Q3) what is liftiing the state up ?
-ans ) is a  concept in react where you move the state from child components to common parents components in order to share that is done when multiple components need to modify the same state and its more efficient to store the state in common ancestor rather than it each individual child components 
-
-Q4) what is advantange and disadvantage of using props drilling ?
+Q3) what is advantange and disadvantage of using props drilling ?
 ans) advantage :
      1) easy to understand : prop drilling is simple and easy to understand , specially in small application 
      2) clear data flow: prop drilling promotion clear and predicatable dataflow 
@@ -21,5 +17,92 @@ ans) advantage :
     2) unnessart clushter (there are so many variable into application )
     3) suppose we can change the data into the props during render time it render all the application 
 
+
+Q4) what is liftiing the state up ?
+ans ) is a  concept in react where you move the state from child components to common parents components in order to share that is done when multiple components need to modify the same state and its more efficient to store the state in common ancestor rather than it each individual child components 
+  example -> 
+  
+
+const Section = ({ name, description, isVisible , setIsVisible}) => {
+  return (
+    <div className="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h1 className="text-2xl font-bold text-gray-800 mb-4">{name}</h1>
+
+      {isVisible ? (
+        <>
+          <button onClick={() => setIsVisible(false)}>Hide</button>
+          <p className="text-gray-600 text-lg leading-relaxed">{description}</p>
+        </>
+      ) : (
+        <button onClick={() => setIsVisible(true)}>Show</button>
+      )}
+    </div>
+  );
+};
+
+const Instamart = () => {
+  const [visiblesection, setvisblesection] = useState();
+  return (
+    <>
+      <Section name={<h1>Aboutinstamart</h1>} description={<p>Imagine that you translate Lizzo's "Good as Hell" into Latin. Then, print the lyrics, chop them into single words, toss them in the air, and use them in the order they landed on the floor to create placeholder text for your single people's Valentine's Day blog. You just completed your first randomized lorem ipsum copy. Any Lizzo fans who also know ancient languages will appreciate the nod to their favorite artist. Of course, printing the lyrics to toss them in the air would be ridiculous. Precisely for this reason, randomized text generators exist.</p>}
+      isVisible={visiblesection==="about"}
+      setIsVisible = {()=>{setvisblesection("Instamartteam")}}
+      />i
+
+      <Section name={<h1>Instamartteam</h1>} description={<p>First, you need a word bank: words and phrases that will provide the possible sentences and paragraphs you can create. Use the find and replace tool in your preferred online word processing program. You can select your favorite blocks of text, including conversations from your direct messaging app, pages from favorite childhood books, song lyrics, or even a collection of social media posts and discussions. Next, search the text for offensive words and phrases before running it through a translation tool if you wish to produce a Latin version. Finally, translate before scrambling the text using any listed random dummy text generators.</p>}
+      isVisible={visiblesection==="Instamartteam"}
+      setIsVisible = {()=>setvisblesection("about")}
+      />
+    </>
+  );
+}           
+
+
+    explaination :-   
+If you click the "Show" button in the "Aboutinstamart" section:
+setIsVisible={() => setvisblesection("about")} updates visiblesection to "about".
+React re-renders:
+isVisible={visiblesection === "about"} → true (text for "Aboutinstamart" is shown).
+isVisible={visiblesection === "Instamartteam"} → false (text for "Instamartteam" remains hidden).
+If you then click the "Show" button in the "Instamartteam" section:
+
+setIsVisible={() => setvisblesection("Instamartteam")} updates visiblesection to "Instamartteam".
+React re-renders:
+isVisible={visiblesection === "about"} → false (text for "Aboutinstamart" is hidden).
+isVisible={visiblesection === "Instamartteam"} → true (text for "Instamartteam" is shown).
+
+
 Q5) what is context provider and context cunsumer ?
-ans) 
+ans) context provider : 
+     1) context prpvider a way to pass data through the componets tree without having to pass props down manually at every level 
+        in typically react application data is passed top- down (parent to child) via props but such usage can be cumbersone for certain components within the application . context provider a way to share value like them between components without having explicit pass a props through every level of tree 
+     2) we can create one or more context provider in the project 
+     3) fistly we can create new file in the utlis like this 
+        create context for the project 
+        example :
+                     import { createContext, useContext } from "react"
+                     const usercontext = createContext({
+                     user :{
+                     name: "samabhav jha",
+                     email: "sambhavisthegreate@gmail.com"
+                                              }
+                                            })
+                     export default usercontext; 
+        here this is defalut data that we put in the componets 
+
+    4) we used provider for all components that why we used main.js because it contain all components 
+       <usercontext.provider 
+       value = {                {here this is how we change the value of context}
+       user: sambhav 
+       }> 
+       <Header/>
+       <Outlet/> {it is placeholder that we used for rounting}
+       <Footer/>
+       </usercontext.provider> 
+   5) react router dom woks behind the scene of context 
+   6^*) when you created context always give contextname like 
+       usercontext. display name = "usercontext"
+   7) react does't treate this context name  but extension chase it 
+   8) why we need context provider ?
+      .) prop drilling : for deep nested structute this can leads to clushted and hard to mainted 
+      .) global state managments : it maintain global state 
