@@ -14,18 +14,18 @@ ans) JSX  is a syntak where we used babel and convert code into react createElem
      JSX is llike syntak HTML inside the JS but it actually jsx doesn't contain HTML inside JS 
      JSX contain jsx expresion 
 
-2) React.createElement vs JSX?
+2) React.createElement vs JSX ?
 ans) React.createElement is a JS function that create react element directly   {REACT.CREATEELEMENT--> OBJECT -->HTML(DOM)}
      JSX is a syntak that we create new element [JSX SYNTAX --> BABEL-->REACT.CREATEELEMENT-->OBJECT-->HTML(DOM)]
 
-3)Benefits of JSX?
+3)Benefits of JSX ?
 ans)1)JSX allow you to combine JS logic and HTML structure in same file 
     2) jsx make things very simple that we understand very easiely 
 
-4)Behind the Scenes of JSX?
+4)Behind the Scenes of JSX ?
 ans) JSX is a syntak that we create new element [JSX SYNTAX --> BABEL-->REACT.CREATEELEMENT-->OBJECT-->HTML(DOM)]
 
-5)Babel & parcel role in JSX
+5)Babel & parcel role in JSX ?
 ans) when we install parcel bable tools also install with them . bable mainly used for convert new version of javascript code (ECMAScript 2015+) to old version of javascript code (backwards)
     we used babel : 1)we want to run our code in old browers(polyfills)  2) we used babel to convert jsx into createelement 
 
@@ -35,22 +35,22 @@ ans) react element : one tag is know as react element .. element gives only one 
                               or
                         every part of UI
     components are two type : 1) functional component(NEW TYPE CODE) 2) class based components (ODL TYPE OF CODE)
-                              1) functional components : it is a function that return soome part of some peice of JSX or react element 
-7) Superpowers of JSX?
+                              ->) functional components : it is a function that return some part of some peice of JSX or react element 
+7) Superpowers of JSX ?
 ans) 1) JSX help us keep our code simpler and elegant when written large piece of code ...
      2) acc to react docs most people find it helpfull as a visual aid when worker with UI inside the JS code 
      3) JSX allow react to show more useful error and warning message 
      4) if one famililar with HTML it quite easy to use JSX when buildingreact application 
      5) faster than normal JS as it application optimization while translation to regular JS 
 
-8) Role of type attribute in script tag? What options can I use there?
-ans) the type attribute in the <script> tag specify that scripting language used in the script . it inform the browser how to interprete the content withnin the <script> element 
+8) Role of type attribute in script tag? What options can I use there ?
+ans) the type attribute in the <script> tag specify that scripting language used in the script . it inform the browser how to interprete the content within the <script> element 
       \by default type attribute is (browser treate the JS as a text )
       \type="module" .indicate that script is JS module  .allow the use import and export statment 
 
-9){TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+9){TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX ?
 ans) {Titlecomponent} -> it means we put react element and any type of JAVASCRIPT code 
-     {<TitleComponent/>} -> it means we render the component 
+     {<TitleComponent/>} -> it means we render the component
      {<TitleComponent></TitleComponent>} -> it is same with {<titlecomponet/>}
 
 10) Create a Header Component from scratch using Functional Components with JSX
