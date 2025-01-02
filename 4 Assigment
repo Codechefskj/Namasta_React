@@ -1,5 +1,5 @@
 1) Is JSX mandatory for React?
-ans) no JSX is not mandotary for react .. JSX i sjust like syntak which make .createElemnt easy way to written 
+ans) no JSX is not mandotary for react .. JSX is just like syntak which make .createElemnt easy way to written 
 
 2)Is ES6 mandatory for React?
 ans) No ES6 is not mandatory for react . react itself does't depend on ES6 it can used with ES6 or older 
@@ -14,8 +14,8 @@ ans) we used "//" for single line comments and "**/" for multiple line
 ans) VDOM is lightweight copy or representation of real DOM that exist is memory rather than browser (this is a just copy of real DOM)
      in typical react application the virtual DOM act an intermediate between the UI state and real DOM . when somethings change in real DOM , react will update the virtual DOM first 
 
-6) what is shadow DOM  ? how it is diffrent for virtual dom ?
-ans) The shadow dom is browser technology designed primarily for scoping variable and css in web components . virtual DOM is concepy implementa by libraries in JS 
+6) what is shadow DOM ? how it is diffrent for virtual dom ?
+ans) The shadow dom is browser technology designed primarily for scoping variable and css in web components . virtual DOM is concepy implementation by libraries in JS 
 
 7)What is Reconciliation in React?
 ans) it is process of updating the real DOM based in changes in virtual DOM . react uses highly optimizes algorithum (DIFFER) to compare the current virtual DOM with previous one the figure 
